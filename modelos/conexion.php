@@ -1,7 +1,18 @@
 <?php
-// PHP Data Objects(PDO) Sample Code:
-    $con=mysqli_init(); 
-    mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); 
-    mysqli_real_connect($con, "serv-mysql-prueba.mysql.database.azure.com", "prueba@serv-mysql-prueba", {your_password}, {your_database}, 3306);
 
-?>
+class Conexion{
+
+	static public function conectar(){
+
+		$link = new PDO("serv-mysql-prueba.mysql.database.azure.com",
+			            "rprueba@serv-mysql-prueba",
+			            "pass_1234",
+                        "Inventario");
+
+		$link->exec("set names utf8");
+
+		return $link;
+
+	}
+
+}
